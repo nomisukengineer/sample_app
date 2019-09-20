@@ -13,6 +13,7 @@ group :development, :test do
   #gem 'sqlite3', '1.3.13'
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'spring-commands-rspec'
 end
 
 group :development do
@@ -20,8 +21,9 @@ group :development do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'rspec-rails', '~> 3.6'
-  gem 'spring-commands-rspec'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :test do
@@ -31,7 +33,12 @@ group :test do
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
   gem 'rspec-rails', '~> 3.6'
-  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'capybara', '~> 2.13'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :production do
