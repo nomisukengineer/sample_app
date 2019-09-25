@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '5.1.6'
+gem 'bcrypt',         '3.1.12'
 gem 'bootstrap-sass', '3.3.7'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
@@ -15,6 +16,8 @@ group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'spring-commands-rspec'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -33,14 +36,14 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
-  gem 'rspec-rails', '~> 3.6'
-  gem 'factory_bot_rails'
   gem 'faker'
   gem 'capybara',  '~> 2.13'
   gem 'webdrivers'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
+#  gem 'factory_girl_rails', :require => false
 end
 
 group :production do
