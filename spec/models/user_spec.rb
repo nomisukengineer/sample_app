@@ -1,9 +1,7 @@
 
-
-
-=begin
 require 'rails_helper'
 
+=begin
 
 RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
@@ -73,6 +71,5 @@ RSpec.describe User, type: :model do
     end
   end
 end
-
 
 =end
