@@ -16,7 +16,7 @@ group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'spring-commands-rspec'
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails'
 end
 

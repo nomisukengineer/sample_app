@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-#RSpec.feature "StaticPages", type: :feature do
+RSpec.feature "StaticPages", type: :feature do
 #  pending "add some scenarios (or delete) #{__FILE__}"
-#endi
+end
 
 describe 'Home' do
   specify 'タイトル内容の表示' do

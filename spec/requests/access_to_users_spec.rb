@@ -1,18 +1,20 @@
-=begin
+
 
 require 'rails_helper'
 
-
+=begin
 describe 'POST #create' do
     #有効なユーザーの検証
     context 'valid request' do
-      #ユーザーが追加される
+
+     #ユーザーが追加される
       it 'adds a user' do
         expect do
           post signup_path, params: { user: attributes_for(:user) }
         end.to change(User, :count).by(1)
       end
-      #ユーザーが追加されたときの検証
+
+#ユーザーが追加されたときの検証
       context 'adds a user' do
         before { post signup_path, params: { user: attributes_for(:user) } }
         subject { response }
