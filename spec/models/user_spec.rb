@@ -1,17 +1,26 @@
-
 require 'rails_helper'
 
-=begin
+
 
 RSpec.describe User, type: :model do
-  let(:user) { FactoryBot.create(:user) }
+#  let(:user) { FactoryBot.create(:user) }
+#パターン2
+# user = FactoryBot.create(:user)
+#パター3
+  let(:user) { User.new(params) }
+  let(:params) { { name: 'たろう', age: age } }
 
- # describe User do 
+=begin
+  describe User do
     # 有効なファクトリを持つこと
-    it "has a valid factory" do 
+    it "has a valid factory" do
       expect(user).to be_valid
     end
- # end
+  end
+end
+=end
+
+=begin
 
   # Shoulda Matchers を使用
   it { is_expected.to validate_presence_of :name }
@@ -22,15 +31,26 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_length_of(:email).is_at_most(255) }
   it { is_expected.to validate_presence_of :password }
   it { is_expected.to validate_length_of(:password).is_at_least(6) }
+=end
 
-
-  # 重複したメールアドレスなら無効な状態であること ・・・(*)
-  it "is invalid with a duplicate email adress" do 
+=begin
+  # 重複したメールアドレスなら無効な状態であること ・・・(*)これは下に書き換え！
+  it "is invalid with a duplicate email adress" do
     FactoryBot.create(:user, email: "aaron@example.com")
     user = FactoryBot.build(:user, email: "Aaron@example.com")
     user.valid?
     expect(user.errors[:email]).to include("has already been taken")
   end
+
+end
+=end
+
+  it "メールアドレスが重複していたら登録できない" do
+    user1 = FactoryBot.create(:user,name: "taro", email: "taro@example.com", password: "tarotaro1")
+    expect(FactoryBot.build(:user, name: "ziro", email: user1.email, password: "ziroziro1")).to_not be_valid
+  end
+end
+=begin
 
   # メールアドレスの有効性
   describe "email validation should reject invalid addresses" do
@@ -42,7 +62,6 @@ RSpec.describe User, type: :model do
       user.email = invalid_address
       expect(user).to_not be_valid
     end
-  end
 
     # 有効なメールアドレスの場合
     it "should be valid" do
