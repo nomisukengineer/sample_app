@@ -7,7 +7,6 @@ end
 describe 'Home' do
   specify 'タイトル内容の表示' do
     visit root_path
-    expect(page).to have_css('h1', text: 'Sample App')
     expect(page).to have_title 'Ruby on Rails Tutorial Sample App'
   end
 end
