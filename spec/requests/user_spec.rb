@@ -32,7 +32,7 @@ RSpec.describe "User pages", type: :request do
         expect(response).to redirect_to root_path
         user = assigns(:user)    # gem 'rails-controller-testing'をインストール
         # 有効化していない状態でログインしてみる
-        sign_in_as(user)
+        # sign_in_as(user)
         expect(session[:user_id]).to be_falsey
         # 有効化トークンが不正な場合
         get edit_account_activation_path("invalid token", email: user.email)
