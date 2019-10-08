@@ -21,6 +21,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails'
+  gem 'spork'
 end
 
 group :development do

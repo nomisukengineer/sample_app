@@ -7,8 +7,8 @@ RSpec.describe User, type: :model do
 #パターン2
 # user = FactoryBot.create(:user)
 #パター3
-  let(:user) { User.new(params) }
-  let(:params) { { name: 'たろう', age: age } }
+##  let(:user) { User.new(params) }
+##  let(:params) { { name: 'たろう', age: age } }
 
 =begin
   describe User do
@@ -49,7 +49,21 @@ end
     user1 = FactoryBot.create(:user,name: "taro", email: "taro@example.com", password: "tarotaro1")
     expect(FactoryBot.build(:user, name: "ziro", email: user1.email, password: "ziroziro1")).to_not be_valid
   end
+
+  def setup
+#    @user = User.new(name: "Example User", email: "user@example.com",
+#                     password: "foobar", password_confirmation: "foobar")
+    user1 = FactoryBot.create(:user,name: "taro", email: "taro@example.com", password: "tarotaro1")
+  end
+
+  it "authenticated? should return false for a user with nil digest" do
+    expect(user1).to be_valid
+#    expect(response).not_to @user.authenticated?('')
+  end
 end
+
+
+
 =begin
 
   # メールアドレスの有効性

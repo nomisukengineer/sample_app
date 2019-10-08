@@ -1,7 +1,13 @@
 require 'rails_helper'
 
+
+
 RSpec.describe "User pages", type: :request do
-  let(:user) { FactoryBot.create(:user) }
+  #let(:user) { FactoryBot.create(:user) }
+  user = {name: 'nomisuke', 
+          email: "nomi.naohiro1@gmail.com", 
+          password: 'Nao-volley51', 
+          password_confirmation: "bar" }
   #let(:other_user) { FactoryBot.create(:user) }
 
   # 2つのバグのテスト1
@@ -9,7 +15,7 @@ RSpec.describe "User pages", type: :request do
     # ログイン中のみログアウトすること
     it "logs in with valid information followed by logout" do
       sign_in_as(user)     # spec/support/utilities.rbに定義
-      expect(response).to redirect_to user_path(user)
+      expect(response).to redirect_to logout_path #(user)
 
       # ログアウトする
       delete logout_path
