@@ -38,7 +38,10 @@ RSpec.configure do |config|
 
 
 #  config.include TestHelper #作成したヘルパーを追加
- 
+
+# コントローラスペックで Devise のテストヘルパーを使用する(機能しなかったのでやめた)
+#config.include Devise::Test::ControllerHelpers, type: :controller
+
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
