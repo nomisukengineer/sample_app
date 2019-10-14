@@ -8,4 +8,17 @@ RSpec.describe "UsersSignups", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "UserSignupsinformation" do
+    it "valid signup information"
+      expect(
+        post users_path, params: { user: { name:  "Example User",
+        email: "user@example.com",
+        password:              "password",
+        password_confirmation: "password" } }
+      ).to change(User, :count).by(1)
+      redirect_to @user
+      follow_redirect!
+      assert_template 'users/show'
+  end
 end
